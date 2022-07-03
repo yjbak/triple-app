@@ -1,38 +1,89 @@
 .App {
-  text-align: center;
+  width: 1040px;
+  height: auto;
+  margin: 0px auto;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Section {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.ContentLogo {
+  background-image: url('./../public/triple2x.png');
+  background-repeat: no-repeat;
+  position: relative;
+  width: 400px;
+  height: 338px;
+  background-size: 400px 338px;
+  text-align: center;
+  color: rgba(58, 58, 58, 0.7);
+
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: end;
 }
 
-.App-link {
-  color: #61dafb;
+.ContentLogo>span {
+  padding-bottom: 40px;
 }
 
-@keyframes App-logo-spin {
+body {
+  line-height: 1;
+  text-size-adjust: none;
+}
+
+.MetricsContainer {
+  margin-left: 223px;
+}
+
+.MetricsContainer>.item {
+  font-size: 36px;
+}
+
+.item+.item {
+  margin-top: 20px;
+}
+
+.AwardsContainer {
+  margin-top: 50px;
+  display: flex;
+}
+
+.ContentSection {
+  position: relative;
+}
+
+.AwardItem {
+  background-size: 54px 54px;
+  height: 54px;
+  padding: 5px 0px 5px 62px;
+  font-size: 14px;
+  line-height: 22px;
+  margin-right: 39px;
+  display: inline-block;
+  font-family: sans-serif;
+  background-image: url('../public/play-store2x.png');
+  background-repeat: no-repeat;
+  background-position: left top;
+  color: rgba(58, 58, 58, 0.8);
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.fade-in {
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(10px);
   }
+
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
