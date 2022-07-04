@@ -1,0 +1,47 @@
+.app {
+  width: 1040px;
+  height: auto;
+  margin: 0px auto;
+  position: relative;
+
+  .section {
+    position: relative;
+    display: flex;
+
+    &__content {
+      position: relative;
+    }
+
+    &__metrics {
+      margin-left: 223px;
+
+      &-item {
+        font-size: 36px;
+        + .section__metrics-item {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__award {
+      margin-top: 50px;
+      display: flex;
+    }
+  }
+}
+
+.fade-in {
+  animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
