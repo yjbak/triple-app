@@ -9,11 +9,11 @@ const AwardItem = styled.div<IAwardItem>`
   margin-right: 39px;
   display: inline-block;
   font-family: sans-serif;
-  background-image: url(${props => props.img});
+  background-image: url(${(props) => props.img});
   background-repeat: no-repeat;
   background-position: left top;
   color: rgba(58, 58, 58, 0.8);
   font-weight: bold;
   white-space: nowrap;
-`
+`;
 export default AwardItem;

@@ -14,13 +14,6 @@
 
     &__metrics {
       margin-left: 223px;
-
-      &-item {
-        font-size: 36px;
-        + .section__metrics-item {
-          margin-top: 20px;
-        }
-      }
     }
 
     &__award {

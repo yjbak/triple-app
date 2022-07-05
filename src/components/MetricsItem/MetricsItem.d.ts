@@ -1,5 +1,5 @@
 interface IMetricsItem {
-  className: string;
+  fontSize: number;
   count: number;
   unit: string;
   text: string;
