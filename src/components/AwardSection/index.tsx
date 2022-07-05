@@ -4,39 +4,20 @@ import AwardItem from "@components/AwardItem";
 import ContentLogo from "@components/ContentLogo";
 import List from "@components/List";
 import MetricsItem from "@components/MetricsItem";
-import { useCounter } from "@hooks/useCounter";
-
-const metricsList = {
-  traveler: {
-    start: 600,
-    end: 700,
-  },
-  review: {
-    start: 80,
-    end: 100,
-  },
-  plan: {
-    start: 370,
-    end: 470,
-  },
-};
+import { useTravelerAnimation } from "@hooks/useTravelerAnimation";
 
 function AwardSection() {
-  const { traveler, review, plan } = metricsList;
-  const { count: travelerCounter, run: travelerStart } = useCounter({
-    start: traveler.start,
-    end: traveler.end,
-    fps: ((traveler.end - traveler.start) / 100) * 60,
+  const { count: travelerCounter, run: travelerStart } = useTravelerAnimation({
+    start: 600,
+    end: 700,
   });
-  const { count: reviewCounter, run: reviewStart } = useCounter({
-    start: review.start,
-    end: review.end,
-    fps: ((review.end - review.start) / 100) * 60,
+  const { count: reviewCounter, run: reviewStart } = useTravelerAnimation({
+    start: 0,
+    end: 100,
   });
-  const { count: palnCounter, run: planStart } = useCounter({
-    start: plan.start,
-    end: plan.end,
-    fps: ((plan.end - plan.start) / 100) * 60,
+  const { count: palnCounter, run: planStart } = useTravelerAnimation({
+    start: 370,
+    end: 470,
   });
 
   useEffect(() => {

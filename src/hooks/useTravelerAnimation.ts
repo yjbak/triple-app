@@ -4,9 +4,17 @@ interface CounterProps {
   start: number;
   end: number;
   fps?: number;
+  duration?: number;
 }
+const easeOutExpo = (t: number, b: number, c: number, d: number): number =>
+  Math.floor((c * (-Math.pow(2, (-10 * t) / d) + 1) * 1024) / 1023 + b);
 
-export function useCounter({ start, end, fps = 60 }: CounterProps) {
+export function useTravelerAnimation({
+  start,
+  end,
+  fps = 30,
+  duration = 2000,
+}: CounterProps) {
   const [count, setCount] = useState(start);
   const requestRef = useRef<number>(0);
   const thenAtRef = useRef<number>();
@@ -25,7 +33,9 @@ export function useCounter({ start, end, fps = 60 }: CounterProps) {
         if (prevCount >= end) {
           cancelAnimationFrame(requestRef.current);
         }
-        return prevCount < end ? prevCount + 1 : prevCount;
+        return prevCount < end
+          ? easeOutExpo(time, start, end - start, duration)
+          : prevCount;
       });
     }
     requestRef.current = requestAnimationFrame(process);
