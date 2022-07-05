@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-interface ICounterProps {
+
+interface CounterProps {
   start: number;
   end: number;
   fps?: number;
 }
 
-export function useCounter({ start, end, fps = 60 }: ICounterProps) {
+export function useCounter({ start, end, fps = 60 }: CounterProps) {
   const [count, setCount] = useState(start);
   const requestRef = useRef<number>(0);
   const thenAtRef = useRef<number>();

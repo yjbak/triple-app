@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+
 import AwardItem from "@components/AwardItem";
 import ContentLogo from "@components/ContentLogo";
 import List from "@components/List";
@@ -8,16 +9,16 @@ import { useCounter } from "@hooks/useCounter";
 const metricsList = {
   traveler: {
     start: 600,
-    end: 700
+    end: 700,
   },
   review: {
     start: 80,
-    end: 100
+    end: 100,
   },
   plan: {
     start: 370,
-    end: 470
-  }
+    end: 470,
+  },
 };
 
 function AwardSection() {
@@ -25,17 +26,17 @@ function AwardSection() {
   const { count: travelerCounter, run: travelerStart } = useCounter({
     start: traveler.start,
     end: traveler.end,
-    fps: (traveler.end - traveler.start) / 100 * 60,
+    fps: ((traveler.end - traveler.start) / 100) * 60,
   });
   const { count: reviewCounter, run: reviewStart } = useCounter({
     start: review.start,
     end: review.end,
-    fps: (review.end - review.start) / 100 * 60,
+    fps: ((review.end - review.start) / 100) * 60,
   });
   const { count: palnCounter, run: planStart } = useCounter({
     start: plan.start,
     end: plan.end,
-    fps: (plan.end - plan.start) / 100 * 60,
+    fps: ((plan.end - plan.start) / 100) * 60,
   });
 
   useEffect(() => {
@@ -44,13 +45,13 @@ function AwardSection() {
     planStart();
   });
   return (
-    <div className="section fade-in">
-      <div className="section__content">
+    <div className="section">
+      <div className="section__content fade-in">
         <ContentLogo>
           <span>2021년 12월 기준</span>
         </ContentLogo>
       </div>
-      <div className="section__metrics">
+      <div className="section__metrics fade-in">
         <List mtSpace={20}>
           <MetricsItem
             fontSize={36}

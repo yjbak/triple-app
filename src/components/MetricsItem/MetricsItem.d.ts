@@ -1,4 +1,4 @@
-interface IMetricsItem {
+interface MetricsItem {
   fontSize: number;
   count: number;
   unit: string;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ListItem = styled.li<IListItem>`
+const ListItem = styled.li<ListItem>`
   font-size: ${(props) => props.fontSize}px;
   span {
     display: inline-block;

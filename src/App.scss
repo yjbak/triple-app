@@ -14,6 +14,7 @@
 
     &__metrics {
       margin-left: 223px;
+      animation-delay: 100ms;
     }
 
     &__award {
@@ -24,7 +25,8 @@
 }
 
 .fade-in {
-  animation: fadein 2s;
+  animation: fadein;
+  animation-duration: 700ms;
 }
 
 @keyframes fadein {

@@ -1,3 +1,3 @@
-interface IAwardItem {
+interface AwardItem {
   img: string;
 }

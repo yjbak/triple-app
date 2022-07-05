@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AwardItem = styled.div<IAwardItem>`
+const AwardItem = styled.div<AwardItem>`
   background-size: 54px 54px;
   height: 54px;
   padding: 5px 0px 5px 62px;

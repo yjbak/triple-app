@@ -1,3 +1,3 @@
-interface IList {
+interface List {
   mtSpace?: number;
 }
