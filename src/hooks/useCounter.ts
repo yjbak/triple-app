@@ -17,17 +17,15 @@ export function useCounter({ start, end, fps = 60 }: ICounterProps) {
       thenAtRef.current = window.performance.now();
     }
 
-    if (thenAtRef.current) {
-      const elapsed = time - thenAtRef.current;
-      if (elapsed >= fpsInterval) {
-        thenAtRef.current = time - (elapsed % fpsInterval);
-        setCount((prevCount) => {
-          if (prevCount >= end) {
-            cancelAnimationFrame(requestRef.current);
-          }
-          return prevCount < end ? prevCount + 1 : prevCount;
-        });
-      }
+    const elapsed = time - thenAtRef.current;
+    if (elapsed >= fpsInterval) {
+      thenAtRef.current = time - (elapsed % fpsInterval);
+      setCount((prevCount) => {
+        if (prevCount >= end) {
+          cancelAnimationFrame(requestRef.current);
+        }
+        return prevCount < end ? prevCount + 1 : prevCount;
+      });
     }
     requestRef.current = requestAnimationFrame(process);
   };
