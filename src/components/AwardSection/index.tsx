@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import AwardItem from "../AwardItem";
-import ContentLogo from "../ContentLogo";
-import List from "../List";
-import MetricsItem from "../MetricsItem";
-import { useCounter } from "../../hooks/useCounter";
+import AwardItem from "@components/AwardItem";
+import ContentLogo from "@components/ContentLogo";
+import List from "@components/List";
+import MetricsItem from "@components/MetricsItem";
+import { useCounter } from "@hooks/useCounter";
 
 const metricsList = {
   traveler: {

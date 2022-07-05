@@ -1,5 +1,5 @@
-import ListItem from "../ListItem";
-import Strong from "../Strong";
+import ListItem from "@components/ListItem";
+import Strong from "@components/Strong";
 
 function MetricsItem({ fontSize, count, unit, text }: IMetricsItem) {
   return (

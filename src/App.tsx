@@ -1,5 +1,5 @@
 import "./App.scss";
-import AwardSection from "./components/AwardSection";
+import AwardSection from "@components/AwardSection";
 
 function App() {
   return (
