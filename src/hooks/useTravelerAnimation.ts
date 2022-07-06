@@ -6,8 +6,10 @@ interface CounterProps {
   fps?: number;
   duration?: number;
 }
-const easeOutExpo = (t: number, b: number, c: number, d: number): number =>
-  Math.floor((c * (-Math.pow(2, (-10 * t) / d) + 1) * 1024) / 1023 + b);
+
+function easeInOutCubic(t: number) {
+  return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+}
 
 export function useTravelerAnimation({
   start,
@@ -21,7 +23,9 @@ export function useTravelerAnimation({
   const fpsInterval = 1000 / fps;
 
   const process = (time: number) => {
-    cancelAnimationFrame(requestRef.current);
+    if (time >= start + duration) {
+      cancelAnimationFrame(requestRef.current);
+    }
     if (!thenAtRef.current) {
       thenAtRef.current = window.performance.now();
     }
@@ -30,11 +34,14 @@ export function useTravelerAnimation({
     if (elapsed >= fpsInterval) {
       thenAtRef.current = time - (elapsed % fpsInterval);
       setCount((prevCount) => {
+        const progress = (time - start) / duration;
+        const val = easeInOutCubic(progress);
+
         if (prevCount >= end) {
           cancelAnimationFrame(requestRef.current);
         }
         return prevCount < end
-          ? easeOutExpo(time, start, end - start, duration)
+          ? Math.round(start + (end - start) * val)
           : prevCount;
       });
     }
